@@ -2,16 +2,21 @@ import { lazy, Suspense, useEffect, useRef } from "react";
 import gsap from "gsap";
 import { heroConfig } from "../config";
 
-// Three.js shader is lazy-loaded so it stays out of the critical path.
-// A CSS paint gradient renders instantly underneath while it boots.
+// Three.js shader is lazy-loaded and used on desktop only — mobile gets a
+// pure-CSS animated hero that stays smooth even in Low Power Mode (where
+// Safari throttles requestAnimationFrame / WebGL to a near standstill).
 const FluidSubconscious = lazy(() => import("./FluidSubconscious"));
+
+// Decide once, synchronously, so we never mount WebGL on phones.
+const isMobile =
+  typeof window !== "undefined" &&
+  window.matchMedia("(max-width: 768px)").matches;
 
 export default function Hero() {
   const rootRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Entrance — staggered fade/slide-up. Runs on every device.
       gsap.from(".hero__inner > *", {
         y: 34,
         opacity: 0,
@@ -20,11 +25,7 @@ export default function Hero() {
         stagger: 0.12,
         delay: 0.15,
       });
-      gsap.from(".hero__scroll", {
-        opacity: 0,
-        duration: 1,
-        delay: 1.1,
-      });
+      gsap.from(".hero__scroll", { opacity: 0, duration: 1, delay: 1.1 });
     }, rootRef);
     return () => ctx.revert();
   }, []);
@@ -35,11 +36,24 @@ export default function Hero() {
 
   return (
     <section id="hero" className="section hero" ref={rootRef}>
-      {/* Instant-paint fallback (also the Suspense fallback) */}
-      <div className="hero__canvas hero__paint" aria-hidden="true" />
-      <Suspense fallback={null}>
-        <FluidSubconscious imagePath={heroConfig.fluidImagePath} />
-      </Suspense>
+      {isMobile ? (
+        // CSS-only animated hero — guaranteed motion on every phone
+        <div className="hero__canvas hero__cssart" aria-hidden="true">
+          <div
+            className="hero__kenburns"
+            style={{ backgroundImage: `url(${heroConfig.fluidImagePath})` }}
+          />
+          <span className="hero__orb hero__orb--1" />
+          <span className="hero__orb hero__orb--2" />
+        </div>
+      ) : (
+        <>
+          <div className="hero__canvas hero__paint" aria-hidden="true" />
+          <Suspense fallback={null}>
+            <FluidSubconscious imagePath={heroConfig.fluidImagePath} />
+          </Suspense>
+        </>
+      )}
 
       <div className="hero__veil" />
 
