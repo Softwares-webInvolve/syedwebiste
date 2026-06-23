@@ -206,16 +206,28 @@ img {
   letter-spacing: 0.02em;
   line-height: 0.95;
   font-size: clamp(3rem, 11vw, 10rem);
+  /* Animated sheen sweeping across the letters — always-on motion */
   background: linear-gradient(
-    180deg,
+    110deg,
     var(--fg) 0%,
-    var(--kashmir-gold) 55%,
-    var(--kashmir-crimson) 120%
+    var(--kashmir-gold) 38%,
+    #fff6e6 50%,
+    var(--kashmir-gold) 62%,
+    var(--kashmir-crimson) 100%
   );
+  background-size: 230% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  text-shadow: 0 2px 60px rgba(212, 168, 67, 0.12);
+  animation: titleSheen 7s linear infinite;
+}
+@keyframes titleSheen {
+  0% {
+    background-position: 130% 0;
+  }
+  100% {
+    background-position: -30% 0;
+  }
 }
 
 .hero__subtitle {
