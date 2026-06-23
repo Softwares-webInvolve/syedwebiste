@@ -1090,6 +1090,63 @@ img {
   }
 }
 
+/* --- Falling chinar leaves (mobile counterpart of the ambient video) --- */
+.instant__leaves {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+.leaf {
+  position: absolute;
+  top: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+  will-change: transform, opacity;
+  animation-name: leafFall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.leaf--amber {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 2 C46 18 52 40 32 62 C12 40 18 18 32 2 Z' fill='%23C8943A'/%3E%3Cpath d='M32 8 L32 56' stroke='%238a5a1f' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+}
+.leaf--gold {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 2 C46 18 52 40 32 62 C12 40 18 18 32 2 Z' fill='%23D4A843'/%3E%3Cpath d='M32 8 L32 56' stroke='%239a7820' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+}
+.leaf--crimson {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 2 C46 18 52 40 32 62 C12 40 18 18 32 2 Z' fill='%238B1A2B'/%3E%3Cpath d='M32 8 L32 56' stroke='%234a0e17' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+}
+.leaf--rust {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 2 C46 18 52 40 32 62 C12 40 18 18 32 2 Z' fill='%23A8442A'/%3E%3Cpath d='M32 8 L32 56' stroke='%235c2014' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+}
+@keyframes leafFall {
+  0% {
+    transform: translate3d(0, -14vh, 0) rotate(0deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.95;
+  }
+  25% {
+    transform: translate3d(16px, 18vh, 0) rotate(95deg);
+  }
+  50% {
+    transform: translate3d(-14px, 46vh, 0) rotate(185deg);
+  }
+  75% {
+    transform: translate3d(18px, 74vh, 0) rotate(275deg);
+  }
+  92% {
+    opacity: 0.95;
+  }
+  100% {
+    transform: translate3d(-10px, 116vh, 0) rotate(360deg);
+    opacity: 0;
+  }
+}
+
 /* ============================================================
    MOBILE OVERHAUL  (<= 768px)
    ============================================================ */

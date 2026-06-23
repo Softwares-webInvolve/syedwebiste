@@ -5,6 +5,23 @@ import { instantConfig } from "../config";
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Deterministic falling-leaf layout for the mobile "INKED" backdrop.
+// (CSS-animated so it keeps moving even in Low Power Mode.)
+const LEAVES = [
+  { left: "5%", size: 24, dur: 10, delay: 0, kind: "amber" },
+  { left: "16%", size: 16, dur: 14, delay: 2.5, kind: "crimson" },
+  { left: "27%", size: 20, dur: 11.5, delay: 1, kind: "gold" },
+  { left: "38%", size: 14, dur: 16, delay: 4, kind: "rust" },
+  { left: "49%", size: 26, dur: 9.5, delay: 0.8, kind: "amber" },
+  { left: "60%", size: 18, dur: 13, delay: 3.2, kind: "crimson" },
+  { left: "70%", size: 15, dur: 15.5, delay: 1.8, kind: "gold" },
+  { left: "80%", size: 22, dur: 10.5, delay: 5, kind: "rust" },
+  { left: "90%", size: 17, dur: 12.5, delay: 2, kind: "amber" },
+  { left: "33%", size: 13, dur: 17, delay: 6, kind: "crimson" },
+  { left: "55%", size: 19, dur: 12, delay: 7, kind: "gold" },
+  { left: "74%", size: 14, dur: 15, delay: 3.6, kind: "rust" },
+];
+
 export default function Instant() {
   const rootRef = useRef<HTMLElement>(null);
   // Decide once, before paint, whether to load the heavy video at all.
@@ -101,6 +118,25 @@ export default function Instant() {
         </div>
       )}
       <div className="instant__veil" />
+
+      {/* Falling chinar leaves — the mobile counterpart of the video */}
+      {!useVideo && (
+        <div className="instant__leaves" aria-hidden="true">
+          {LEAVES.map((l, i) => (
+            <span
+              key={i}
+              className={`leaf leaf--${l.kind}`}
+              style={{
+                left: l.left,
+                width: `${l.size}px`,
+                height: `${l.size}px`,
+                animationDuration: `${l.dur}s`,
+                animationDelay: `${l.delay}s`,
+              }}
+            />
+          ))}
+        </div>
+      )}
 
       <div className="instant__inner">
         <p className="room-label instant__room">{instantConfig.roomLabel}</p>
