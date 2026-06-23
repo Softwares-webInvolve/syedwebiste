@@ -1,0 +1,10 @@
+# Local test of the production image:
+#   docker compose up --build
+# then open http://localhost:8080
+services:
+  web:
+    build: .
+    image: timeless-tales:latest
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
