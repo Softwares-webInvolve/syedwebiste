@@ -45,6 +45,17 @@ export interface InstantConfig {
   roomLabel: string;
 }
 
+export interface AboutConfig {
+  eyebrowLabel: string;
+  heading: string;
+  roleLine: string;
+  paragraphs: string[];
+  worksLabel: string;
+  works: string[];
+  image: string;
+  imageCaption: string;
+}
+
 export interface FooterConfig {
   brandText: string;
   taglineLines: string[];
@@ -342,6 +353,32 @@ export const instantConfig: InstantConfig = {
   roomLabel: "Chronicle 03 // The Eternal",
 };
 
+// ─── ABOUT ──────────────────────────────────────────────────
+
+export const aboutConfig: AboutConfig = {
+  eyebrowLabel: "CHRONICLE 04 // THE AUTHOR",
+
+  heading: "Syed Mustahsan",
+
+  roleLine: "Writer & Poet — Outskirts of Srinagar, Jammu & Kashmir",
+
+  paragraphs: [
+    "Syed Mustahsan, a writer from the outskirts of Srinagar, Jammu and Kashmir. I've been writing since 2020, drawn to words as a way of understanding emotions, memories, and the silences people rarely talk about. My work often explores love, loss, and the subtle weight of lived experiences, shaped deeply by the place I come from.",
+    "I'm the author and co-writer of several books — working both independently and in collaboration with other writers. Writing, for me, isn't about labels or loud presence; it's about honesty, reflection, and leaving something real behind on the page.",
+  ],
+
+  worksLabel: "SELECTED WORKS",
+  works: [
+    "Tears in Verse",
+    "Echoes of Existence",
+    "Beneath The Chinar Trees",
+    "Shards of Our Souls",
+  ],
+
+  image: "/images/work-words-unspoken.jpg",
+  imageCaption: "Srinagar, Kashmir",
+};
+
 // ─── FOOTER ─────────────────────────────────────────────────
 
 export const footerConfig: FooterConfig = {
@@ -358,7 +395,7 @@ export const footerConfig: FooterConfig = {
     { label: "The Beginning", href: "#hero" },
     { label: "The Library", href: "#gallery" },
     { label: "The Eternal", href: "#instant" },
-    { label: "About the Author", href: "#footer" },
+    { label: "About the Author", href: "#about" },
   ],
 
   contactHeading: "CONNECT",

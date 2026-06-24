@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import Hero from "../sections/Hero";
 import Gallery from "../sections/Gallery";
 import Instant from "../sections/Instant";
+import About from "../sections/About";
 import Footer from "../sections/Footer";
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
       <Hero />
       <Gallery />
       <Instant />
+      <About />
       <Footer />
     </main>
   );
