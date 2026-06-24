@@ -231,14 +231,21 @@ img {
 }
 
 .hero__subtitle {
-  margin-top: 2.5rem;
-  max-width: 60ch;
-  font-size: clamp(0.95rem, 1.3vw, 1.15rem);
+  margin-top: 2.25rem;
+  max-width: 64ch;
+  font-size: clamp(0.95rem, 1.15vw, 1.1rem);
   font-weight: 300;
+  line-height: 1.75;
   color: rgba(244, 241, 236, 0.82);
 }
 .hero__subtitle span {
   display: block;
+  margin-bottom: 0.95em;
+}
+.hero__subtitle span:last-child {
+  margin-bottom: 0;
+  font-style: italic;
+  color: var(--kashmir-gold);
 }
 
 .hero__cta {
@@ -1174,13 +1181,12 @@ img {
     line-height: 0.92;
   }
   .hero__subtitle {
-    margin-top: 1.8rem;
-    font-size: 1rem;
-    line-height: 1.7;
+    margin-top: 1.6rem;
+    font-size: 0.96rem;
+    line-height: 1.72;
   }
-  /* Flow the clauses into a natural paragraph instead of forced lines */
   .hero__subtitle span {
-    display: inline;
+    margin-bottom: 0.85em;
   }
   .hero__cta {
     margin-top: 2.4rem;

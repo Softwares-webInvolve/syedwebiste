@@ -84,12 +84,11 @@ export const heroConfig: HeroConfig = {
   titleText: "TIMELESS TALES",
 
   subtitleLines: [
-    "From the outskirts of Srinagar, where chinar leaves whisper secrets to the wind,",
-    "Syed Mustahsan writes of love that lingers, loss that shapes, and the silences",
-    "between heartbeats. Poetry and prose born from the misty valleys of Kashmir —",
-    "stories of Zain and Amina beneath autumn trees, of Aariz and Zainab shattered",
-    "by fate, of invisible guests who arrive at midnight, and letters written to futures",
-    "that never came. Chronicles of love, loss, and adventure — one verse at a time.",
+    "A place where words carry the weight of memories, where silence speaks louder than sound, and where stories are born from love, loss, and everything in between.",
+    "Timeless Tales is more than just a collection of books. It is a journey through the fragile corners of the human heart, exploring grief, longing, healing, and the quiet resilience that keeps us moving forward.",
+    "Written by Syed Mustahsan, a Kashmiri author and poet, these pages are deeply rooted in the landscapes of Kashmir and the emotions that shape us all. From poetry that bleeds honesty to stories that linger long after the final page, every piece here is an echo of something once lived, once loved, or once lost.",
+    "This space is for the dreamers, the broken, the hopeful, and those who find pieces of themselves in words.",
+    "Step in, turn the page, and let the stories find you.",
   ],
 
   ctaLabel: "Enter the Archive",

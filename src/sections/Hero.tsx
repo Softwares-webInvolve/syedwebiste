@@ -62,11 +62,11 @@ export default function Hero() {
 
         <h1 className="hero__title">{heroConfig.titleText}</h1>
 
-        <p className="hero__subtitle">
+        <div className="hero__subtitle">
           {heroConfig.subtitleLines.map((line, i) => (
-            <span key={i}>{line} </span>
+            <span key={i}>{line}</span>
           ))}
-        </p>
+        </div>
 
         <button className="hero__cta interactive" onClick={scrollToGallery}>
           {heroConfig.ctaLabel} <span>→</span>
